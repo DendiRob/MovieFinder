@@ -8,6 +8,7 @@ const NavUnlisted = styled.ul`
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
+  margin-top: 20px;
 `;
 
 const HorizontalNav = () => {

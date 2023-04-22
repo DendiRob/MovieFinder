@@ -1,17 +1,16 @@
 import './app.css';
 import React, { useState } from 'react';
-import MovieSlider from '../MovieSlider/MovieSlider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HorizontalNav from '../horizontalNav/horizontalNav';
-import { MoviesPage,SeriesPage } from '../pages';
+import { HomePage, MoviesPage,SeriesPage } from '../pages';
 import LeftBar from '../leftBar/leftBar';
-import { ReactComponent as BurgerMenu } from '../leftBar/icons/burger.svg';
+import Layout from '../layout/layout';
+import Watchlist from '../watchlist/watchlist';
 
 function App() {
   const [activeMenu,setMenuActive] = useState(false)
 
-  const menuHandler = () => {
-    setMenuActive(true)
+  const menuHandler = (data) => {
+    setMenuActive(data)
     }
 
   const forCloseMenu = (data) => {
@@ -19,18 +18,17 @@ function App() {
   }
   return (
       <Router>
-        <div
-        onClick={() => menuHandler()}
-        className='menu_burger'>
-          <BurgerMenu/>
-        </div>
+
         {activeMenu? <LeftBar className='leftBar_menu' forCloseMenu={forCloseMenu} />: <></>}
+
         <div className='contentContainer'>
-          <HorizontalNav />
-          <MovieSlider />
           <Routes>
-            <Route path='/movies' element={<MoviesPage />}/>
-            <Route path='/series' element={<SeriesPage />}/>
+            <Route path='/' element={<Layout menuHandler={menuHandler} />}>
+              <Route index element={<HomePage />}/>
+              <Route path='/movies' element={<MoviesPage />}/>
+              <Route path='/series' element={<SeriesPage />}/>
+              <Route path='/watchlist' element={<Watchlist/>}/>
+            </Route>
           </Routes>
         </div>
       </Router>
