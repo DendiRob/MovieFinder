@@ -1,7 +1,7 @@
 import React from "react";
 import './watchlistCard.css'
 
-const WatchlistCard = ({moviesList}) => {
+const WatchlistCard = ({moviesList,removeMovieFromWatchlist}) => {
     const {id,url,day,month,year,title,language,describe,rating} = moviesList
 
     return(
@@ -16,6 +16,9 @@ const WatchlistCard = ({moviesList}) => {
                 <div className="infoLanguage">Language: {language}</div>
                 <div className="infoRating">Rating: {rating}</div>
                 <div className="releaseDate">Release date: {day}.{month}.{year}</div>
+                <button 
+                onClick={() => removeMovieFromWatchlist(id)}
+                className="removeMovie">Remove</button>
             </div>
         </div>
     )

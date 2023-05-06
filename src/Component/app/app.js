@@ -17,6 +17,14 @@ function App() {
   const forCloseMenu = (data) => {
     setMenuActive(data)
   }
+  const removeMovieFromWatchlist = (value) => {
+    const indexForRemove = moviesList.findIndex(item => item.id === value)
+    setList([
+      ...moviesList.slice(0, indexForRemove),
+      ...moviesList.slice(indexForRemove + 1)
+    ])
+
+  }
   const addMovieToWatchlist = (value) =>{
     if(moviesList.find(item => item.id === value.id)){
     }else{
@@ -45,7 +53,7 @@ function App() {
               <Route index element={<HomePage />}/>
               <Route path='/movies' element={<MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/series' element={<SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
-              <Route path='/watchlist' element={<Watchlist moviesList={moviesList}/>}/>
+              <Route path='/watchlist' element={<Watchlist removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={moviesList}/>}/>
             </Route>
           </Routes>
         </div>

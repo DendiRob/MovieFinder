@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchlistCard from '../watchlistCard/wathclistCard';
 
-const Watchlist = ({moviesList}) => {
+const Watchlist = ({moviesList,removeMovieFromWatchlist}) => {
     const sumMovies = moviesList.length
     
     return(
@@ -10,7 +10,7 @@ const Watchlist = ({moviesList}) => {
             <div className='amountOfMovies'>{sumMovies} titles</div>
             <ul className='moviesList'  >
                {moviesList.map(item => {
-                    return <WatchlistCard moviesList={item}/>
+                    return <WatchlistCard removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={item}/>
                 })}
             </ul>
         </div>
