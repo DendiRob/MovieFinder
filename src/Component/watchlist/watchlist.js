@@ -1,8 +1,19 @@
 import React from 'react';
+import WatchlistCard from '../watchlistCard/wathclistCard';
 
-const Watchlist = () => {
+const Watchlist = ({moviesList}) => {
+    const sumMovies = moviesList.length
+    
     return(
-        <h1 style={{color: 'red'}}>Hello</h1>
+        <div className='watchlistWrapper'>
+            <h1>Watchlist</h1>
+            <div className='amountOfMovies'>{sumMovies} titles</div>
+            <ul className='moviesList'  >
+               {moviesList.map(item => {
+                    return <WatchlistCard moviesList={item}/>
+                })}
+            </ul>
+        </div>
     )
 }
 export default Watchlist

@@ -1,0 +1,15 @@
+a svg {
+    stroke: #F9F9F9;
+    position: absolute;
+    left: -15px;
+    top: -3px;
+}
+/* .iconWrapper a svg{
+    stroke: #F9F9F9;
+    position: absolute;
+    left: -15px;
+    top: -3px;
+} */
+.active svg{
+    stroke: #00B9AE;
+}

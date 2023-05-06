@@ -1,0 +1,73 @@
+h1 {
+    font-family: Lato;
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    color: #F9F9F9;
+}
+.amountOfMovies{
+    color: #F9F9F9;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+.watchlistCardWrapper {
+    border: 1px solid red;
+    margin-bottom: 10px;
+}
+.watchlistCardWrapper img {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+}
+.moviesList {
+    padding: 0;
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.watchlistCardTitle {
+    color: #F9F9F9;
+    font-family: Lato;
+    font-size: 28px;
+    font-weight: 700;
+    vertical-align: top ;
+    text-align: left;
+}
+.releaseDate {
+    margin-right: 0;
+    color: #F9F9F9;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+}
+.CardInfoBlock {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+}
+.CardInfoBlock p {
+    color: #F9F9F9;
+    width: 550px;
+    font-family: Lato;
+    font-size: 20px;
+
+}
+.infoLanguage{
+    color: #F9F9F9;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.infoRating {
+    color: #F9F9F9;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 10px;
+}

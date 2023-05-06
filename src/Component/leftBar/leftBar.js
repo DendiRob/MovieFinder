@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import img_logo from './icons/logo.png'
@@ -54,6 +54,7 @@ const Logo = styled.div`
 const IconLinkWrapper = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
     
 `
 const CloserImg = styled.div`
@@ -89,26 +90,6 @@ const MenuOverlay = styled.div`
 
 const LeftBar = ({forCloseMenu}) => {
 
-    const [isActiveH,setAcH] = useState(false)
-    const [isActiveD,setAcD] = useState(false)
-    const [isActiveW,setAcW] = useState(false)
-    
-
-    const isActivH = () => {
-        setAcH(true)
-        setAcW(false)
-        setAcD(false)
-    }
-    const isActivD = () => {
-        setAcD(true)
-        setAcW(false)
-        setAcH(false)
-    }
-    const isActivW = () => {
-        setAcW(true)
-        setAcH(false)
-        setAcD(false)
-    }
 
 
     return(
@@ -128,12 +109,9 @@ const LeftBar = ({forCloseMenu}) => {
                 </Logo>
             <NavUnlisted>
                 <LeftBarTitle>Menu</LeftBarTitle>
-                <IconLinkWrapper
-                >
-                    <ImgHome stroke={isActiveH? '#00B9AE': '#F9F9F9'}/>
+                <IconLinkWrapper>
                     <NavLink 
                     to='/'
-                    onClick={isActivH}
                     style={({isActive}) => ({
                         color: isActive? '#00B9AE': '#F9F9F9',
                         textDecoration:'none',
@@ -144,13 +122,12 @@ const LeftBar = ({forCloseMenu}) => {
                         lineHeight: '22px'
 
                     })}>
+                        <ImgHome/>
                         Home</NavLink>
                 </IconLinkWrapper>
-                <IconLinkWrapper>
-                    <ImgDiscover stroke={isActiveD? '#00B9AE': '#F9F9F9'}/>
+                <IconLinkWrapper >
                     <NavLink
                     to='/discover' 
-                    onClick={isActivD}
                     style={({isActive}) => ({
                         color: isActive? '#00B9AE': '#F9F9F9',
                         textDecoration:'none',
@@ -158,15 +135,15 @@ const LeftBar = ({forCloseMenu}) => {
                         fontSize: '18px',
                         fontWeight: '600',
                         margin: '0 0 0 15px ',
-                        lineHeight: '22px',
+                        lineHeight: '22px'
+
                     })}>
-                        Discover</NavLink>
+                    <ImgDiscover/>
+                    Discover</NavLink>
                 </IconLinkWrapper>
-                <IconLinkWrapper>
-                    <ImgWatchlist stroke={isActiveW? '#00B9AE': '#F9F9F9'}/>
+                <IconLinkWrapper >
                     <NavLink 
                     to='/Watchlist' 
-                    onClick={isActivW}
                     style={({isActive}) => ({
                         color: isActive? '#00B9AE': '#F9F9F9',
                         textDecoration:'none',
@@ -176,6 +153,7 @@ const LeftBar = ({forCloseMenu}) => {
                         margin: '0 0 0 15px ',
                         lineHeight: '22px'
                     })}>
+                        <ImgWatchlist />
                         Watchlist</NavLink>
                 </IconLinkWrapper>
             </NavUnlisted>   
@@ -187,3 +165,5 @@ const LeftBar = ({forCloseMenu}) => {
     )
 }
 export default LeftBar
+
+// isActiveH? '#00B9AE': '#F9F9F9'

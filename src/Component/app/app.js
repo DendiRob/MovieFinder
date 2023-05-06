@@ -7,7 +7,8 @@ import Layout from '../layout/layout';
 import Watchlist from '../watchlist/watchlist';
 
 function App() {
-  const [activeMenu,setMenuActive] = useState(false)
+  const [activeMenu,setMenuActive] = useState(false);
+  const [moviesList,setList] = useState([]);
 
   const menuHandler = (data) => {
     setMenuActive(data)
@@ -15,6 +16,23 @@ function App() {
 
   const forCloseMenu = (data) => {
     setMenuActive(data)
+  }
+  const addMovieToWatchlist = (value) =>{
+    if(moviesList.find(item => item.id === value.id)){
+    }else{
+      const newMovie = {
+        id: value.id,
+        language: value.plot.language.id,
+        describe: value.plot.plotText.plainText,
+        url: value.primaryImage.url,
+        rating: value.ratingsSummary.aggregateRating,
+        title: value.titleText.text,
+        day: value.releaseDate.day,
+        month: value.releaseDate.month,
+        year: value.releaseDate.year
+      }
+      setList([...moviesList, newMovie])
+    }
   }
   return (
       <Router>
@@ -25,9 +43,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Layout menuHandler={menuHandler} />}>
               <Route index element={<HomePage />}/>
-              <Route path='/movies' element={<MoviesPage />}/>
-              <Route path='/series' element={<SeriesPage />}/>
-              <Route path='/watchlist' element={<Watchlist/>}/>
+              <Route path='/movies' element={<MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
+              <Route path='/series' element={<SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
+              <Route path='/watchlist' element={<Watchlist moviesList={moviesList}/>}/>
             </Route>
           </Routes>
         </div>

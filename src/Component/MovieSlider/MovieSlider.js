@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react"
 import './movieSlider.css'
 import BtnSlider from './BtnSlider'
-import BtnWatchlist from './BtnWatchlist'
 import DBSlides from "./sliderDB"
 
 export default function MovieSlider(props) {
@@ -61,7 +60,6 @@ export default function MovieSlider(props) {
               </div>
             ))}
           </div>
-          <BtnWatchlist />
       </div>
     )
   }

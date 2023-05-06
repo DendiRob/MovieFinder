@@ -18,16 +18,15 @@ export default class CinemaService {
         if (!res.ok){
             throw new Error(`Could not fetch ${url}, status: ${res.status}`);
         }
-
         return await res.json()
     }
 
     getMovies(){
-        return this.getResource('/titles?list=most_pop_movies&limit=10&endYear=2023&startYear=2015')
+        return this.getResource('/titles?list=most_pop_movies&limit=10&endYear=2023&startYear=2015&info=base_info')
     }
 
     getSeries() {
-        return this.getResource('/titles?list=top_rated_series_250&limit=10&page=2&endYear=2023&startYear=2010')
+        return this.getResource('/titles?list=top_rated_series_250&limit=10&page=2&endYear=2023&startYear=2010&info=base_info')
     }
 }
 

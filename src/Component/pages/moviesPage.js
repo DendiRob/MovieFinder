@@ -7,7 +7,7 @@ import MovieSlider from '../MovieSlider/MovieSlider';
 
 
 
-const MoviesPage = () => {
+const MoviesPage = ({addMovieToWatchlist}) => {
 
   const [dataMovies, setDataMovies] = useState([])
 
@@ -44,7 +44,7 @@ const MoviesPage = () => {
                 </img>
                 <div className='titleCard'>{obj.titleText.text}</div>
                 <div className='btn-onCard'
-                // onClick={}
+                onClick={() => addMovieToWatchlist(obj)}
                 >
                     <div className='btnWrap'>
                       <img alt="btn-plus" src={plus} />

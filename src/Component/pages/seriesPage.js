@@ -6,7 +6,7 @@ import HorizontalNav from '../horizontalNav/horizontalNav';
 import MovieSlider from '../MovieSlider/MovieSlider';
 
 
-const SeriesPage = () => {
+const SeriesPage = ({addMovieToWatchlist}) => {
 
   const [dataSeries, setDataSeries] = useState([])
 
@@ -47,9 +47,7 @@ const SeriesPage = () => {
                 </img>
                 <div className='titleCard'>{obj.titleText.text}</div>
                 <div className='btn-onCard'
-                onClick={(item) => {
-                  console.log()
-                }}
+                onClick={() => addMovieToWatchlist(obj)}
                 >
                     <div className='btnWrap'>
                       <img alt="btn-plus" src={plus} />
