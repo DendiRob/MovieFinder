@@ -5,6 +5,7 @@ import { HomePage, MoviesPage,SeriesPage } from '../pages';
 import LeftBar from '../leftBar/leftBar';
 import Layout from '../layout/layout';
 import Watchlist from '../watchlist/watchlist';
+import Discover from '../discover';
 
 function App() {
   const [activeMenu,setMenuActive] = useState(false);
@@ -54,6 +55,7 @@ function App() {
               <Route path='/movies' element={<MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/series' element={<SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/watchlist' element={<Watchlist removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={moviesList}/>}/>
+              <Route path='/discover' element={<Discover />}/>
             </Route>
           </Routes>
         </div>
