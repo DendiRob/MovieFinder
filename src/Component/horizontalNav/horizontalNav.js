@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const NavUnlisted = styled.ul`
   text-decoration: none;
-  width: 700px;
+  max-width: 700px;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;

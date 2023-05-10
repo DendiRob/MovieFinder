@@ -1,5 +1,6 @@
 .searchCardWrapper {
     margin-bottom: 20px;
+    position: relative;
 }
 .searchYear{
     margin-right: 0;
@@ -8,4 +9,12 @@
     font-size: 20px;
     font-weight: 400;
     text-align: center;
+}
+.btnWrap_small{
+    width: 21px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    border: 1px solid black;
 }

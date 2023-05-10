@@ -39,7 +39,7 @@ export default function MovieSlider(props) {
       className='container-slider'>
           {dataSlide.map((obj, index)=> {
               return (
-                    <div
+                    <div key={obj.imdbID}
                     className={slideIndex === index + 1? "slide active-anim": "slide"}>
                         <img
                         alt={obj.imdbID}
@@ -54,7 +54,7 @@ export default function MovieSlider(props) {
 
           <div className='container-dots'>
             {Array.from({length: dataSlide.length}).map((item,index) => (
-              <div
+              <div key={index}
               className={slideIndex === index + 1? "dot active": "dot"}
               onClick={() => moveDot(index + 1)}>
               </div>

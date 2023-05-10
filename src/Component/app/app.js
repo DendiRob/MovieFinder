@@ -18,6 +18,7 @@ function App() {
   const forCloseMenu = (data) => {
     setMenuActive(data)
   }
+
   const removeMovieFromWatchlist = (value) => {
     const indexForRemove = moviesList.findIndex(item => item.id === value)
     setList([
@@ -36,26 +37,32 @@ function App() {
         url: value.primaryImage.url,
         rating: value.ratingsSummary.aggregateRating,
         title: value.titleText.text,
-        day: value.releaseDate.day,
-        month: value.releaseDate.month,
         year: value.releaseDate.year
       }
       setList([...moviesList, newMovie])
     }
   }
+
+  const addMovieToWatchlistFromSearch = (value) =>{
+    console.log(value)
+    if(moviesList.find(item => item.id === value.id)){
+    }else{
+      setList([...moviesList, value])
+      }
+    }
+  
+
   return (
       <Router>
-
-        {activeMenu? <LeftBar className='leftBar_menu' forCloseMenu={forCloseMenu} />: <></>}
-
+        <LeftBar activeMenu={activeMenu} forCloseMenu={forCloseMenu}/>
         <div className='contentContainer'>
           <Routes>
-            <Route path='/' element={<Layout menuHandler={menuHandler} />}>
+            <Route path='/' element={<Layout menuHandler={menuHandler}/>}>
               <Route index element={<HomePage />}/>
               <Route path='/movies' element={<MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/series' element={<SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/watchlist' element={<Watchlist removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={moviesList}/>}/>
-              <Route path='/discover' element={<Discover />}/>
+              <Route path='/discover' element={<Discover addMovieToWatchlistFromSearch={addMovieToWatchlistFromSearch}/>}/>
             </Route>
           </Routes>
         </div>

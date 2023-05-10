@@ -1,5 +1,6 @@
 import React from 'react';
 import WatchlistCard from '../watchlistCard/wathclistCard';
+import './watchlist.css'
 
 const Watchlist = ({moviesList,removeMovieFromWatchlist}) => {
     const sumMovies = moviesList.length

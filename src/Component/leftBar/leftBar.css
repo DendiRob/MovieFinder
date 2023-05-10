@@ -4,12 +4,22 @@ a svg {
     left: -15px;
     top: -3px;
 }
-/* .iconWrapper a svg{
-    stroke: #F9F9F9;
-    position: absolute;
-    left: -15px;
-    top: -3px;
-} */
 .active svg{
     stroke: #00B9AE;
+}
+
+.menuWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    transition: margin .5s;
+    margin: 0 0 0 -250px;
+}
+.isOpen{
+    margin-left: 0;
+    visibility: visible;
+    opacity: 1;
 }

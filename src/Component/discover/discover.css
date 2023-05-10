@@ -1,8 +1,8 @@
 .discoverInput  {
-    width: 400px;
-    height: 30px;
     margin: 0 auto;
     display: block;
+    width: 400px;
+    height: 30px;
     border: none;
     border-radius: 10px;
     background: url("/src/Component/discover/icons/search.svg") no-repeat  scroll 10px 4px;
@@ -20,8 +20,9 @@ form{
     left: 445px;
 }
 .searchList {
+    padding: 0;
     margin: 0 auto;
-    width: 1000px;
+    max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -34,4 +35,34 @@ form{
     vertical-align: top ;
     text-align: center;
     width: 300px;
+}
+.searchCardWrapper {
+    margin-bottom: 10px;
+}
+@media screen and (max-width:469px){
+    .discoverInput {
+        width: 250px;
+    }
+
+}
+.searchWrapper h1{
+    font-family: Lato;
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    color: #F9F9F9;
+}
+@media screen and (max-width:899px){
+    .searchWrapper h1 {
+        font-size: 35px;
+    }
+    .searchList {
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width:600px){
+
+    .searchList {
+        justify-content: center;
+    }
 }

@@ -1,33 +1,15 @@
-h1 {
-    font-family: Lato;
-    font-size: 48px;
-    font-weight: 800;
-    text-align: center;
-    color: #F9F9F9;
-}
-.amountOfMovies{
-    color: #F9F9F9;
-    font-family: Lato;
-    font-size: 24px;
-    font-weight: 300;
-    text-align: center;
-}
 .watchlistCardWrapper {
     border: 1px solid red;
     margin-bottom: 10px;
     position: relative;
+    max-height: 300px;
 }
 .watchlistCardWrapper img {
     display: inline-block;
     width: 200px;
     height: 300px;
 }
-.moviesList {
-    padding: 0;
-    width: 900px;
-    margin: 0 auto;
-    margin-top: 20px;
-}
+
 .watchlistCardTitle {
     color: #F9F9F9;
     font-family: Lato;
@@ -48,12 +30,15 @@ h1 {
     display: inline-block;
     vertical-align: top;
     margin-left: 10px;
+    max-width: 100%;
 }
 .CardInfoBlock p {
-    color: #F9F9F9;
+    color: #00a550  ;
     width: 550px;
     font-family: Lato;
-    font-size: 20px;
+    max-height: 110px;
+    font-size: 22px;
+    overflow:auto;
 
 }
 .infoLanguage{
@@ -84,4 +69,47 @@ h1 {
     right: 20px;
     bottom: 20px;
     cursor: pointer;
+}
+@media screen and (max-width:771px){
+    .CardInfoBlock p {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        overflow:scroll;
+    }
+    .CardInfoBlock{
+        display: block;
+    }
+    .watchlistCardWrapper img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .watchlistCardWrapper {
+        min-height: 700px;
+        border: none;
+        border-bottom: 1px solid red;
+    }
+    .watchlistCardTitle{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .infoLanguage{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .infoRating{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .releaseDate{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .removeMovie{
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+    }
 }

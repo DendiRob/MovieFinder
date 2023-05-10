@@ -67,17 +67,8 @@ const CloserImg = styled.div`
         height: 25px;
     }
 `
-const Menu = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 10;
-    visibility: visible;
-    opacity: 1;
-    transition: all .6s;
 
-`
+
 const MenuOverlay = styled.div`
     position: fixed;
     top: 0;
@@ -88,12 +79,14 @@ const MenuOverlay = styled.div`
     opacity: .7;
 `
 
-const LeftBar = ({forCloseMenu}) => {
+const LeftBar = ({forCloseMenu,activeMenu}) => {
 
-
-
+    const menuClasses = ['menuWrapper']
+    if(activeMenu){
+        menuClasses.push('isOpen')
+    }
     return(
-        <Menu>
+        <div className={menuClasses.join(' ')}>
             <BarWrapper>
                 <CloserImg
                 onClick={() => forCloseMenu(false)}>
@@ -158,10 +151,8 @@ const LeftBar = ({forCloseMenu}) => {
                 </IconLinkWrapper>
             </NavUnlisted>   
         </BarWrapper>
-        <MenuOverlay>
-
-</MenuOverlay> 
-        </Menu>
+        {activeMenu? <MenuOverlay /> : <></> }
+    </div>
     )
 }
 export default LeftBar

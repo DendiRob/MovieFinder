@@ -1,5 +1,5 @@
 .container-slider {
-    width: 770px;
+    max-width: 770px;
     height: 400px;
     margin: 85px auto 0;
     position: relative;
@@ -9,6 +9,12 @@
   @media screen and (max-width: 700px){
     .container-slider {
       margin: 100px 10px 0;
+    }
+
+  }
+  @media screen and (max-width:600px){
+    .container-slider{
+      display: none;
     }
   }
   .slide {
