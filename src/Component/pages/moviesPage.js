@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import CinemaService from '../services/apiCinema';
-import plus from '../MovieSlider/icons/plus.svg'
 import './pages.css'
+import CardForHomePage from './cardForHomePage';
 
 
-const MoviesPage = ({addMovieToWatchlist}) => {
+const MoviesPage = ({addMovieToWatchlist,moviesList}) => {
 
   const [dataMovies, setDataMovies] = useState([])
 
@@ -31,31 +31,11 @@ const MoviesPage = ({addMovieToWatchlist}) => {
           <h2>Popular Movies</h2>
           <div className='cardWrapper'>
               {dataMovies.map((obj,index) => {
-              return(
-                <div className='card' key={obj.id}>
-                <img
-                alt={index}
-                src={obj.primaryImage.url}>
-                </img>
-                <div className='titleCard'>{obj.titleText.text}</div>
-                <div className='btn-onCard'
-                onClick={() => addMovieToWatchlist(obj)}
-                >
-                    <div className='btnWrap'>
-                      <img alt="btn-plus" src={plus} />
-                      <div
-                      className='btn-watch'
-                      >
-                      Watchlist
-                      </div>
-                    </div>
-                </div>
-              </div>
-              )
-              })}
+                return <CardForHomePage key={obj.id} moviesList={moviesList} addMovieToWatchlist={addMovieToWatchlist} obj={obj} index={index}/>
+                })}      
           </div>
         </div>
-        </>       
+      </>       
     )
 }
 export { 

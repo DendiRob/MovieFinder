@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './discover.css'
 import DiscoverCard from '../discoverCard/discoverCard';
-const Discover = ({addMovieToWatchlistFromSearch}) => {
+
+
+
+const Discover = ({addMovieToWatchlistFromSearch,moviesList}) => {
     const [searchList, setList] = useState([])
     const [value,setValue] = useState('')
 
@@ -36,6 +39,7 @@ const Discover = ({addMovieToWatchlistFromSearch}) => {
                 <ul className='searchList'  >
                     {searchList.map(item => {
                             return <DiscoverCard 
+                            moviesList={moviesList}
                             key={item.imdbID} 
                             searchList={item}
                             addMovieToWatchlistFromSearch={addMovieToWatchlistFromSearch}

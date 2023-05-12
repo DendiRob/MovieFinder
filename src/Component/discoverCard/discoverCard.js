@@ -1,10 +1,17 @@
 import React from "react";
 import './discoverCard.css'
 import plus from '../MovieSlider/icons/plus.svg'
+import tick from '../MovieSlider/icons/tick.svg'
 
-const DiscoverCard = ({searchList,addMovieToWatchlistFromSearch}) => {
+const DiscoverCard = ({searchList,addMovieToWatchlistFromSearch,moviesList}) => {
 
     const {Title,Poster,Year} = searchList
+
+    let needIcon = plus;
+
+    if(moviesList.find(item => item.id === searchList.imdbID)){
+        needIcon = tick;
+    }
 
     const transformTitle = async (value) => {
         const url = `http://www.omdbapi.com/?i=${value}&plot=full&apikey=d2a9e0c9`
@@ -36,7 +43,7 @@ const DiscoverCard = ({searchList,addMovieToWatchlistFromSearch}) => {
             className='btnWrap btnWrap_small'
             onClick={()=> {transformTitle(searchList.imdbID)}}
             >
-                <img alt="btn-plus" src={plus} />
+                <img alt="btn-plus" src={needIcon} />
             </div>
 
         </li>

@@ -11,6 +11,7 @@ function App() {
   const [activeMenu,setMenuActive] = useState(false);
   const [moviesList,setList] = useState([]);
 
+
   const menuHandler = (data) => {
     setMenuActive(data)
     }
@@ -38,13 +39,12 @@ function App() {
         rating: value.ratingsSummary.aggregateRating,
         title: value.titleText.text,
         year: value.releaseDate.year
-      }
+        }
       setList([...moviesList, newMovie])
     }
   }
 
   const addMovieToWatchlistFromSearch = (value) =>{
-    console.log(value)
     if(moviesList.find(item => item.id === value.id)){
     }else{
       setList([...moviesList, value])
@@ -58,9 +58,9 @@ function App() {
         <div className='contentContainer'>
           <Routes>
             <Route path='/' element={<Layout menuHandler={menuHandler}/>}>
-              <Route index element={<HomePage addMovieToWatchlist={addMovieToWatchlist}/>}/>
+              <Route index element={<HomePage moviesList={moviesList} addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/watchlist' element={<Watchlist removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={moviesList}/>}/>
-              <Route path='/discover' element={<Discover addMovieToWatchlistFromSearch={addMovieToWatchlistFromSearch}/>}/>
+              <Route path='/discover' element={<Discover moviesList={moviesList} addMovieToWatchlistFromSearch={addMovieToWatchlistFromSearch}/>}/>
             </Route>
           </Routes>
         </div>

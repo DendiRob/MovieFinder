@@ -3,7 +3,7 @@ import MovieSlider from "../MovieSlider/MovieSlider";
 import { MoviesPage } from "./moviesPage";
 import { SeriesPage } from "./seriesPage";
 
-const HomePage = ({addMovieToWatchlist}) => {
+const HomePage = ({addMovieToWatchlist,moviesList}) => {
 
     const [activeMovies,setMovies] = useState(true)
     const [activeSeries,setSeries] = useState(false)
@@ -45,7 +45,7 @@ const HomePage = ({addMovieToWatchlist}) => {
                 className="setSeries"
                 >Series</div>
             </div>
-            {activeMovies? <MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>: <SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}
+            {activeMovies? <MoviesPage moviesList={moviesList} addMovieToWatchlist={addMovieToWatchlist}/>: <SeriesPage moviesList={moviesList} addMovieToWatchlist={addMovieToWatchlist}/>}
         </>
     )
 }

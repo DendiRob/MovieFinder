@@ -16,7 +16,7 @@ const Watchlist = ({moviesList,removeMovieFromWatchlist}) => {
             <div className='amountOfMovies'>{sumMovies} {title}</div>
             <ul className='moviesList'  >
                {moviesList.map(item => {
-                    return <WatchlistCard removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={item}/>
+                    return <WatchlistCard key={item.id} removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={item}/>
                 })}
             </ul>
         </div>
