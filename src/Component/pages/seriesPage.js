@@ -2,8 +2,7 @@ import React,{useState,useEffect} from 'react';
 import CinemaService from '../services/apiCinema';
 import plus from '../MovieSlider/icons/plus.svg'
 import './pages.css'
-import HorizontalNav from '../horizontalNav/horizontalNav';
-import MovieSlider from '../MovieSlider/MovieSlider';
+
 
 
 const SeriesPage = ({addMovieToWatchlist}) => {
@@ -30,8 +29,6 @@ const SeriesPage = ({addMovieToWatchlist}) => {
 
     return(
       <>
-      <HorizontalNav />
-      <MovieSlider />
         <div className='wrapper'>
           <h2>Popular Series</h2>
           <div className='cardWrapper'>

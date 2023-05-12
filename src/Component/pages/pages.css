@@ -69,6 +69,19 @@ h2{
     color: #F9F9F9;
     margin-left: 15px;
 }
+.setMovies {
+    cursor: pointer;
+}
+.setSeries {
+    cursor: pointer;
+}
+.homeNavPanel{
+    display: flex;
+    max-width: 600px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 20px;
+}
 @media screen and (max-width:790px){
     .wrapper h2 {
         text-align: center;

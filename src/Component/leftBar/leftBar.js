@@ -102,7 +102,8 @@ const LeftBar = ({forCloseMenu,activeMenu}) => {
                 </Logo>
             <NavUnlisted>
                 <LeftBarTitle>Menu</LeftBarTitle>
-                <IconLinkWrapper>
+                <IconLinkWrapper
+                onClick={() => forCloseMenu(false)}>
                     <NavLink 
                     to='/'
                     style={({isActive}) => ({
@@ -118,7 +119,8 @@ const LeftBar = ({forCloseMenu,activeMenu}) => {
                         <ImgHome/>
                         Home</NavLink>
                 </IconLinkWrapper>
-                <IconLinkWrapper >
+                <IconLinkWrapper
+                onClick={() => forCloseMenu(false)}>
                     <NavLink
                     to='/discover' 
                     style={({isActive}) => ({
@@ -134,7 +136,8 @@ const LeftBar = ({forCloseMenu,activeMenu}) => {
                     <ImgDiscover/>
                     Discover</NavLink>
                 </IconLinkWrapper>
-                <IconLinkWrapper >
+                <IconLinkWrapper
+                onClick={() => forCloseMenu(false)}>
                     <NavLink 
                     to='/Watchlist' 
                     style={({isActive}) => ({
@@ -151,7 +154,7 @@ const LeftBar = ({forCloseMenu,activeMenu}) => {
                 </IconLinkWrapper>
             </NavUnlisted>   
         </BarWrapper>
-        {activeMenu? <MenuOverlay /> : <></> }
+        {activeMenu? <MenuOverlay onClick={() => forCloseMenu(false)} /> : <></> }
     </div>
     )
 }

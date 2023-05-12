@@ -1,7 +1,7 @@
 import './app.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HomePage, MoviesPage,SeriesPage } from '../pages';
+import { HomePage } from '../pages';
 import LeftBar from '../leftBar/leftBar';
 import Layout from '../layout/layout';
 import Watchlist from '../watchlist/watchlist';
@@ -58,9 +58,7 @@ function App() {
         <div className='contentContainer'>
           <Routes>
             <Route path='/' element={<Layout menuHandler={menuHandler}/>}>
-              <Route index element={<HomePage />}/>
-              <Route path='/movies' element={<MoviesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
-              <Route path='/series' element={<SeriesPage addMovieToWatchlist={addMovieToWatchlist}/>}/>
+              <Route index element={<HomePage addMovieToWatchlist={addMovieToWatchlist}/>}/>
               <Route path='/watchlist' element={<Watchlist removeMovieFromWatchlist={removeMovieFromWatchlist} moviesList={moviesList}/>}/>
               <Route path='/discover' element={<Discover addMovieToWatchlistFromSearch={addMovieToWatchlistFromSearch}/>}/>
             </Route>
